@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stroke Prediction</title>
+    <link href="pythonProject/CSS/form.css" rel="stylesheet">
+</head>
+<body>
+<h2>Stroke Prediction Form</h2>
+<form action="/predict" method="post">
+    Age: <label>
+    <input name="age" placeholder="Age" required type="number">
+</label><br>
+
+    Gender:
+    <label>
+        <select name="gender" required>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+        </select>
+    </label><br>
+
+    Hypertension:
+    <label>
+        <select name="hypertension" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+    </label><br>
+
+    Heart Disease:
+    <label>
+        <select name="heart_disease" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+    </label><br>
+
+    Ever Married:
+    <label>
+        <select name="ever_married" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+    </label><br>
+
+    Work Type:
+    <label>
+        <select name="work_type" required>
+            <option value="0">Private</option>
+            <option value="1">Self-employed</option>
+            <option value="2">Govt Job</option>
+            <option value="3">Never Worked</option>
+            <option value="4">Children</option>
+        </select>
+    </label><br>
+
+    Residence Type:
+    <label>
+        <select name="Residence_type" required>
+            <option value="0">Urban</option>
+            <option value="1">Rural</option>
+        </select>
+    </label><br>
+
+    Avg Glucose Level: <label>
+    <input name="avg_glucose_level" placeholder="Avg Glucose Level" required step="0.01" type="number">
+</label><br>
+
+    BMI: <label>
+    <input name="bmi" placeholder="BMI" required step="0.01" type="number">
+</label><br>
+
+    Smoking Status:
+    <label>
+        <select name="smoking_status" required>
+            <option value="0">Never Smoked</option>
+            <option value="1">Formerly Smoked</option>
+            <option value="2">Smokes</option>
+            <option value="3">Unknown</option>
+        </select>
+    </label><br>
+
+    <input type="submit" value="Predict Stroke">
+</form>
+
+</body>
+</html>
