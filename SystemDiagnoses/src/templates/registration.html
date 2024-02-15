@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<title>Registration Page</title>
+    <script src="../static/js/passwordValidation.js"></script>
+    <script src="../static/js/multiStepForm.js"></script>
+
+</head>
+<body>
+
+
+    {% extends 'base.html' %} <!-- Extending the base.html template -->
+    {% block title %}Home Page{% endblock %} <!-- Setting the title of the page -->
+    {% block content %}
+<div class="content-container">
+
+    <aside class="side-panel">
+        <div class="logo-container">
+            <img src="" alt="Logo" class="logoSidePanel">
+            <h1>Title/Logo</h1>
+            <p>Description of the site or service</p>
+        </div>
+    </aside>
+    <div class="main-content">
+        <main>
+            <section class="registration-form">
+                <!-- Begin the registration form -->
+                <form id="registration-form" action="/register" method="post" onsubmit="return validatePassword()">
+
+                    <!-- Step 1: Personal Information -->
+                    <fieldset id="step1" class="active">
+                        <h2>Register</h2>
+                        <div>
+                            <label for="firstName">First Name:</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        <div>
+                            <label for="dob">Date of Birth:</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <div>
+                            <label for="gender">Gender:</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <!-- Button to proceed to the next step -->
+                        <button type="button" class="form-navigation-button" onclick="showStep(2)">Next</button>
+                        <div class="account-link">
+                            <p>Already have an account? <a href="/login">Log in</a></p>
+                        </div>
+                    </fieldset>
+
+                    <!-- Step 2: Contact Information -->
+                    <fieldset id="step2">
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <!-- Added mobile number input -->
+                        <div>
+                            <label for="mobile">Mobile Number:</label>
+                            <input type="tel" id="mobile" name="mobile" required>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <button type="button" class="form-navigation-button previous-button" onclick="showStep(1)">Previous</button>
+                        <button type="button" class="form-navigation-button" onclick="showStep(3)">Next</button>
+                    </fieldset>
+
+                    <!-- Step 3: Credentials -->
+                    <fieldset id="step3">
+                        <div>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required onkeyup="checkPasswordStrength()">
+                            <span id="password-strength"></span>
+                        </div>
+                        <div>
+                            <label for="confirm_password">Confirm Password:</label>
+                            <input type="password" id="confirm_password" name="confirm_password" required>
+                            <span id="password-match"></span>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <button type="button" class="form-navigation-button previous-button" onclick="showStep(2)">Previous</button>
+                        <button type="submit" class="form-navigation-button">Register</button>
+                    </fieldset>
+
+                </form>
+            </section>
+        </main>
+    </div>
+
+</div>
+{% endblock %} <!-- End of the content block -->
+
+</body>
+
+</html>
